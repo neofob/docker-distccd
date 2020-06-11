@@ -4,7 +4,12 @@ ARG version
 FROM ${distro}:${version}
 
 # Install distcc
-RUN apt-get update && apt-get install -y g++ clang distcc
+RUN apt-get update && \
+	apt-get dist-upgrade -yq && \
+	apt-get install -yq g++ clang distcc ccache && \
+	apt-get autoremove -yq && \
+	apt-get autoclean && \
+	rm -fr /tmp/* /var/lib/apt/lists/*
 
 # Create a new user named 'user'
 RUN useradd --create-home --shell /bin/sh user

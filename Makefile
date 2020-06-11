@@ -1,4 +1,4 @@
-IMAGES = ubuntu-18.04 ubuntu-18.10 ubuntu-16.04 ubuntu-14.04 debian-9 debian-8 debian-7
+IMAGES ?= ubuntu-20.04 ubuntu-18.04 ubuntu-18.10 ubuntu-16.04 ubuntu-14.04 debian-10 debian-9 debian-8 debian-7
 BUILD_TARGETS = $(IMAGES:%=build-%)
 PUSH_TARGETS = $(IMAGES:%=push-%)
 
